@@ -2,7 +2,7 @@ title: SaaS Compass
 description: Honest reviews and comparisons of the best SaaS tools — so you can work smarter, not harder.
 baseurl: "/saas-compass"
 url: "https://Joker1616-joker.github.io"
-repository: Joker1616-joker/saas-compass
+repository: /saas-compass
 
 markdown: kramdown
 permalink: /:categories/:title/
