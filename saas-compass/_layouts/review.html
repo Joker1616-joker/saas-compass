@@ -1,0 +1,102 @@
+---
+layout: default
+---
+<article>
+  <!-- REVIEW HERO -->
+  <div style="padding: 60px 24px 40px; border-bottom: 1px solid var(--border);">
+    <div class="container--narrow">
+      <div class="hero__eyebrow">{{ page.category | default: 'Software Review' }}</div>
+      <h1 style="font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 16px;">{{ page.title }}</h1>
+      {% if page.tagline %}<p style="font-size: 1.1rem; color: var(--text-muted);">{{ page.tagline }}</p>{% endif %}
+
+      <!-- Score + meta -->
+      <div style="display: flex; align-items: center; gap: 24px; margin-top: 28px; flex-wrap: wrap;">
+        {% if page.rating %}
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 900; color: var(--accent);">{{ page.rating }}</span>
+          <div>
+            <div class="stars">★★★★★</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">out of 10</div>
+          </div>
+        </div>
+        {% endif %}
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; display: flex; flex-direction: column; gap: 4px;">
+          {% if page.pricing %}<span>Pricing: {{ page.pricing }}</span>{% endif %}
+          {% if page.free_trial %}<span style="color: var(--accent);">✓ Free Trial Available</span>{% endif %}
+          <span>Updated {{ page.date | date: '%B %Y' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width: 1000px; margin: 0 auto; padding: 48px 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start;">
+
+    <!-- CONTENT -->
+    <div class="prose">
+      {{ content }}
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside style="position: sticky; top: 80px; display: flex; flex-direction: column; gap: 20px;">
+
+      <!-- Affiliate CTA -->
+      {% if page.affiliate_url %}
+      <div style="background: var(--bg-card); border: 1px solid var(--border-accent); border-radius: var(--radius); padding: 24px;">
+        <div style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Best Deal</div>
+        {% if page.discount %}<div style="font-size: 0.9rem; color: var(--accent); margin-bottom: 16px; font-weight: 600;">{{ page.discount }}</div>{% endif %}
+        <a href="{{ page.affiliate_url }}" class="btn-affiliate" rel="nofollow noopener" target="_blank">
+          Try {{ page.tool_name }} Free →
+        </a>
+        <a href="{{ page.website_url }}" class="btn-secondary" rel="nofollow noopener" target="_blank" style="margin-top: 8px;">
+          Visit Official Site
+        </a>
+        <p style="font-size: 0.72rem; color: var(--text-faint); text-align: center; margin-top: 12px;">Affiliate link — we earn a commission</p>
+      </div>
+      {% endif %}
+
+      <!-- Pros & Cons -->
+      {% if page.pros or page.cons %}
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px;">
+        {% if page.pros %}
+        <div style="margin-bottom: 16px;">
+          <div style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;">Pros</div>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+            {% for pro in page.pros %}
+            <li style="font-size: 0.85rem; color: var(--text-muted); display: flex; gap: 8px;">
+              <span style="color: var(--accent); flex-shrink: 0;">✓</span> {{ pro }}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+        {% if page.cons %}
+        <div>
+          <div style="font-size: 0.75rem; font-family: var(--font-mono); color: #ff6b6b; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;">Cons</div>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+            {% for con in page.cons %}
+            <li style="font-size: 0.85rem; color: var(--text-muted); display: flex; gap: 8px;">
+              <span style="color: #ff6b6b; flex-shrink: 0;">✗</span> {{ con }}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      <!-- Quick Specs -->
+      {% if page.specs %}
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px;">
+        <div style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px;">Quick Specs</div>
+        {% for spec in page.specs %}
+        <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem;">
+          <span style="color: var(--text-muted);">{{ spec.label }}</span>
+          <span style="color: var(--text); font-weight: 500;">{{ spec.value }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+    </aside>
+  </div>
+</article>
