@@ -1,0 +1,31 @@
+programs:
+  - name: NordVPN
+    url: "https://nordvpn.com/affiliate/"
+    commission: "40% recurring"
+    cookie: 30
+    category: vpn
+  - name: Hostinger
+    url: "https://www.hostinger.com/affiliates"
+    commission: "60% per sale"
+    cookie: 30
+    category: hosting
+  - name: ConvertKit
+    url: "https://convertkit.com/affiliate"
+    commission: "30% recurring"
+    cookie: 60
+    category: email-marketing
+  - name: Notion
+    url: "https://www.notion.so/affiliates"
+    commission: "50% first payment"
+    cookie: 90
+    category: productivity
+  - name: Jasper AI
+    url: "https://www.jasper.ai/affiliate-program"
+    commission: "25% recurring"
+    cookie: 45
+    category: ai-tools
+  - name: SEMrush
+    url: "https://www.semrush.com/partner/affiliates/"
+    commission: "40% recurring"
+    cookie: 120
+    category: seo

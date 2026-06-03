@@ -1,0 +1,101 @@
+---
+layout: default
+title: "Best SaaS Tools Reviews & Comparisons"
+---
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      ✦ Honest, unbiased SaaS reviews
+    </div>
+    <h1>Find the <em>right tools</em><br>for your business</h1>
+    <p class="hero-sub">We test, compare, and review the best SaaS software so you don't waste money on the wrong tools.</p>
+    <div class="hero-actions">
+      <a href="#categories" class="btn btn-primary">Browse Categories →</a>
+      <a href="#latest" class="btn btn-ghost">Latest Reviews</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">200+</div>
+        <div class="stat-label">Tools Reviewed</div>
+      </div>
+      <div>
+        <div class="stat-num">50k+</div>
+        <div class="stat-label">Monthly Readers</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Independent</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="section" id="categories" style="background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="section-inner">
+    <div class="section-label">Browse by category</div>
+    <h2 class="section-title">What are you looking for?</h2>
+    <div class="categories-grid">
+      <a href="/categories/vpn/" class="cat-card">
+        <span class="cat-icon">🔐</span>
+        <div class="cat-name">VPNs</div>
+        <div class="cat-count">Privacy & Security</div>
+      </a>
+      <a href="/categories/hosting/" class="cat-card">
+        <span class="cat-icon">🌐</span>
+        <div class="cat-name">Web Hosting</div>
+        <div class="cat-count">Servers & Domains</div>
+      </a>
+      <a href="/categories/ai-tools/" class="cat-card">
+        <span class="cat-icon">🤖</span>
+        <div class="cat-name">AI Tools</div>
+        <div class="cat-count">Writing & Automation</div>
+      </a>
+      <a href="/categories/email-marketing/" class="cat-card">
+        <span class="cat-icon">📧</span>
+        <div class="cat-name">Email Marketing</div>
+        <div class="cat-count">Lists & Campaigns</div>
+      </a>
+      <a href="/categories/productivity/" class="cat-card">
+        <span class="cat-icon">⚡</span>
+        <div class="cat-name">Productivity</div>
+        <div class="cat-count">Work Smarter</div>
+      </a>
+      <a href="/categories/seo/" class="cat-card">
+        <span class="cat-icon">📈</span>
+        <div class="cat-name">SEO Tools</div>
+        <div class="cat-count">Rankings & Traffic</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LATEST POSTS -->
+<section class="section" id="latest">
+  <div class="section-inner">
+    <div class="section-label">Fresh from the lab</div>
+    <h2 class="section-title">Latest Reviews & Guides</h2>
+    <p class="section-sub">In-depth breakdowns of the tools that actually matter.</p>
+    <div class="posts-grid">
+      {% for post in site.posts limit:6 %}
+      <a href="{{ post.url | relative_url }}" class="post-card">
+        <div class="post-card-header">
+          {% if post.category %}<span class="post-tag">{{ post.category }}</span>{% endif %}
+        </div>
+        <div class="post-card-body">
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+        </div>
+        <div class="post-card-footer">
+          <span>{{ post.date | date: "%b %d, %Y" }}</span>
+          <span class="read-more">Read review →</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
